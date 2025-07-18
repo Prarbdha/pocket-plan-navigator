@@ -1,103 +1,86 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Minimalist Design System - Clean and focused financial app */
 
 @layer base {
   :root {
-    --background: 248 250 252;
-    --foreground: 215 28% 17%;
+    --background: 250 250 250;
+    --foreground: 20 14% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 28% 17%;
+    --card-foreground: 20 14% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 28% 17%;
+    --popover-foreground: 20 14% 20%;
 
-    --primary: 217 91% 60%;
+    --primary: 214 84% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 144 61% 20%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 215 25% 27%;
 
-    --muted: 220 14% 96%;
+    --muted: 210 40% 98%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 142 76% 36%;
+    --accent: 142 71% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 217 91% 60%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 214 84% 56%;
 
-    /* Financial app specific colors */
-    --success: 142 76% 36%;
+    /* Financial app specific colors - minimalist approach */
+    --success: 142 71% 45%;
     --success-foreground: 0 0% 100%;
-    --warning: 43 96% 56%;
+    --warning: 38 92% 50%;
     --warning-foreground: 0 0% 100%;
-    --info: 217 91% 60%;
+    --info: 214 84% 56%;
     --info-foreground: 0 0% 100%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(142 76% 36%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 14% 98%));
-    --gradient-success: linear-gradient(135deg, hsl(142 76% 36%), hsl(144 61% 20%));
+    /* Simplified gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 84% 56%), hsl(142 71% 45%));
+    --gradient-subtle: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 40% 98%));
     
-    /* Shadows */
-    --shadow-soft: 0 2px 8px -2px hsl(217 91% 60% / 0.1);
-    --shadow-medium: 0 4px 16px -4px hsl(217 91% 60% / 0.15);
-    --shadow-strong: 0 8px 32px -8px hsl(217 91% 60% / 0.2);
+    /* Clean shadows */
+    --shadow-xs: 0 1px 2px 0 hsl(214 84% 56% / 0.05);
+    --shadow-sm: 0 1px 3px 0 hsl(214 84% 56% / 0.1), 0 1px 2px -1px hsl(214 84% 56% / 0.1);
+    --shadow-md: 0 4px 6px -1px hsl(214 84% 56% / 0.1), 0 2px 4px -2px hsl(214 84% 56% / 0.1);
 
-    --radius: 0.5rem;
+    --radius: 8px;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -118,6 +101,59 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Typography scale - clean and readable */
+  h1 {
+    @apply scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl;
+  }
+
+  h2 {
+    @apply scroll-m-20 text-3xl font-semibold tracking-tight;
+  }
+
+  h3 {
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+
+  h4 {
+    @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  }
+
+  p {
+    @apply leading-7;
+  }
+
+  /* Clean focus states */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Minimalist card component */
+  .minimal-card {
+    @apply bg-card rounded-lg border shadow-sm p-6 transition-all duration-200;
+  }
+
+  .minimal-card:hover {
+    @apply shadow-md;
+  }
+
+  /* Clean button variants */
+  .btn-minimal {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  /* Progress indicators */
+  .progress-minimal {
+    @apply relative h-2 w-full overflow-hidden rounded-full bg-secondary;
+  }
+
+  /* Input styling */
+  .input-minimal {
+    @apply flex h-12 w-full rounded-md border border-input bg-background px-4 py-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-ring disabled:cursor-not-allowed disabled:opacity-50;
   }
 }
